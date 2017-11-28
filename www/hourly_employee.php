@@ -8,6 +8,8 @@
 
         private $_money;
 
+        private $_cash;
+
         
 
         /*@override*/
@@ -20,6 +22,8 @@
             $this->_hourSpent = $hourSpent;
             $this->_rate = $rate;
             $this->_money = $money;
+            $this->_cash = $cash;
+
 
 
         }
@@ -32,12 +36,20 @@
             return $this->_rate;
         }
 
+        public function getMoney() {
+            return $this->_money;
+        }
+
+        public function getCash() {
+            return $this->_cash;
+        }
+
         public function calculateIncome($hourSpent,$rate) {
             if($hourSpent > 40) {
 
                 define("OVERTIME", 1000);
 
-                return ($hourSpent * $rate) + OVERTIME;
+                return $this->_cash = ($hourSpent * $rate) + OVERTIME;
             }
 
             return $this->_money = $hourSpent * $rate;
@@ -46,13 +58,13 @@
         public function getProfile() {
             echo '<ul>';
             
-            echo '<li> Name: '.$this->getName().'<li>';
-            echo '<li> Gender: '.$this->getGender().'<li>';
-            echo '<li> Type: '.$this->getType().'<li>';
+            echo '<li> Name: '.$this->getName().'</li>';
+            echo '<li> Gender: '.$this->getGender().'</li>';
+            echo '<li> Type: '.$this->getType().'</li>';
             echo '<li> Status: '.$this->getStatus().'</li>';
             echo '<li> Hours Spent: '.$this->getHourSpent().'</li>';
             echo '<li> Rate: '.$this->getRate().'</li>';
-            echo '<li> Income: '.$money.'</li>';
+            echo '<li> Income: '.$this->getMoney().$this->getCash().'</li>';
 
 
 

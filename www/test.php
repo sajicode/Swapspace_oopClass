@@ -3,9 +3,10 @@
     include('salary_calculation.php');
     include('employee.php');
     include('hourly_employee.php');
+    include('salary_employee.php');
     
 
-    $hourlyRate = new HourlyEmployee("Gideon", "Male", 5, 200);
+    $hourlyRate = new HourlyEmployee("Gideon", "Male", 45, 200);
 
     /* $salary = $hourlyRate->getIncome();
 
@@ -37,6 +38,17 @@
     echo "<hr/>";
 
     $hourlyRate->getProfile();
+
+    echo "<hr/>";
+
+    $salaryEmployee = new SalaryEmployee("Bosun", "Male", 200000);
+
+    $salaryName = $salaryEmployee->getName();
+
+    echo $salaryName;
+
+    $salaryEmployee->getProfile();
+
 
 
 
